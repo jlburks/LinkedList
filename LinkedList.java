@@ -6,26 +6,30 @@ public class LinkedList {
 
         llist.addNode(1);
         llist.addNode(2);
-        llist.addNode(3);
-        llist.addNode(000);
-        llist.addNode(5);
-        llist.addNode(6);
+        
         System.out.println(llist.showList());
         
     }
-
+// System.out.println();
     void addNode(int x){
         if (head == null){
             head = new Node(x);
         } else {
-            // begin the chain of checking if next == null and inserting new node
-            Node spear = head;
-            while (spear.next != null){
-                head = spear;
-                spear = spear.next;
+            // Node backupTag = head;
+            Node pointer = head.next;
+            
+            while(pointer != null){
+                head = pointer;
+                pointer = head.next;
+                System.out.println("vamooo");
             }
-            System.out.println(spear.val);
-            spear.next = new Node(x);
+            System.out.println("vamooo");
+
+            Node y = new Node(x);
+            System.out.println("shjfjshdf "+ y+" "+ head);
+            pointer = y;
+            
+            // head = backupTag;
         }
     }
     void deleteNode(){
