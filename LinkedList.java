@@ -6,30 +6,29 @@ public class LinkedList {
 
         llist.addNode(1);
         llist.addNode(2);
-        
-        System.out.println(llist.showList());
+
+        String x = llist.showList();
+        System.out.println(x);
         
     }
 // System.out.println();
     void addNode(int x){
         if (head == null){
             head = new Node(x);
+            return;
         } else {
-            // Node backupTag = head;
+            Node backupTag = head;
             Node pointer = head.next;
             
             while(pointer != null){
                 head = pointer;
                 pointer = head.next;
-                System.out.println("vamooo");
             }
-            System.out.println("vamooo");
+            
 
             Node y = new Node(x);
-            System.out.println("shjfjshdf "+ y+" "+ head);
-            pointer = y;
-            
-            // head = backupTag;
+            pointer = y;            
+            head = backupTag;
         }
     }
     void deleteNode(){
@@ -40,6 +39,7 @@ public class LinkedList {
         String listView = "";
         Node startingPoint =  head;
         while (startingPoint != null){
+            System.out.println("hit");
             listView += String.valueOf(head.val);
             startingPoint = startingPoint.next;
         }
